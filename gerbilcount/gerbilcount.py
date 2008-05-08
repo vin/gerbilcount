@@ -45,7 +45,8 @@ class MainPage(webapp.RequestHandler):
                 'url_linktext': url_linktext,
                 }
 
-        path= os.path.join(os.path.dirname(__file__), 'index.html')
+        path= os.path.join(os.path.dirname(__file__), 'index.xhtml')
+        self.response.headers['Content-Type'] = 'text/xml; charset=utf-8'
         self.response.out.write(template.render(path, template_values))
 
 
