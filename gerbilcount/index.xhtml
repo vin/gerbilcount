@@ -4,39 +4,38 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>Gerbil Count</title>
-	<meta http-equiv="Content-Style-Type" content="text/css" />
+  <title>Gerbil Count</title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
 </head>
 
 <body>
 
-    <ul>
+  <dl>
     {% for gerbil in gerbils %}
-<dt>
+    <dt>
       {% if gerbil.owner %}
         <b>{{ gerbil.owner.nickname }}</b> has a gerbil named
       {% else %}
        An anonymous person has a gerbil named
       {% endif %}
-</dt>
-<dd>
+    </dt>
+    <dd>
 	{{ gerbil.name|escape }}
-</dd>
+    </dd>
     {% endfor %}
-</ul>
+  </dl>
 
     <form action="/add" method="post">
-	    <div>
-		    <label for="name">name: </label><input type="text" name="name" id="name"/>
-	    </div>
-	    <div>
-      <input type="submit" value="Add Gerbil"/>
+      <div>
+        <label for="name">name: </label><input type="text" name="name" id="name"/>
+      </div>
+      <div>
+        <input type="submit" value="Add Gerbil"/>
       </div>
     </form>
 
+    <p>
     <a href="{{ url|escape }}">{{ url_linktext }}</a>
-
-
-
+    </p>
 </body>
 </html>

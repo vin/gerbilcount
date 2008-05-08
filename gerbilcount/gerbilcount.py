@@ -46,7 +46,7 @@ class MainPage(webapp.RequestHandler):
                 }
 
         path= os.path.join(os.path.dirname(__file__), 'index.xhtml')
-        self.response.headers['Content-Type'] = 'text/xml; charset=utf-8'
+        self.response.headers['Content-Type'] = 'application/xhtml+xml charset=utf-8'
         self.response.out.write(template.render(path, template_values))
 
 
