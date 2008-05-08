@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Gerbil Count</title>
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+</head>
+
+<body>
+
+    <ul>
+    {% for gerbil in gerbils %}
+<dt>
+      {% if gerbil.owner %}
+        <b>{{ gerbil.owner.nickname }}</b> has a gerbil named
+      {% else %}
+       An anonymous person has a gerbil named
+      {% endif %}
+</dt>
+<dd>
+	{{ gerbil.name|escape }}
+</dd>
+    {% endfor %}
+</ul>
+
+    <form action="/add" method="post">
+	    <div>
+		    <label for="name">name: </label><input type="text" name="name" id="name"/>
+	    </div>
+	    <div>
+      <input type="submit" value="Add Gerbil"/>
+      </div>
+    </form>
+
+    <a href="{{ url }}">{{ url_linktext }}</a>
+
+
+
+</body>
+</html>
